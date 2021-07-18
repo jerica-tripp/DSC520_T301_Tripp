@@ -1,0 +1,79 @@
+---
+title: "ASSIGNMENT 4"
+author: "Jerica, Tripp"
+date: '2021-07-16'
+output:
+  word_document: default
+  html_document: default
+  pdf_document: default
+bibliography: bibliography.bib
+---
+
+# Markdown Basics
+
+## Favorite Foods
+1. Spagetti
+2. Coconut Shrimp
+3. Grits 
+
+
+## Images
+![All Cases (Log Plot)](10-all-cases-log.png)
+
+## Add a Quote
+>Be yourself, everyone else is already taken.
+
+
+## Add an Equation
+\[\int\frac{d\theta} {1+\theta^2}= 
+\tan^{-1}\theta+C\]
+
+## Add a Footnote
+
+^[This is a footnote]
+
+## Add Citations
+
+* R is for Everyone(Lander 2014)
+* Discovering Statistics Using R(Field, Miles, and Field 2012)
+
+# Inline Code
+```{r, include=FALSE}
+library(ggplot2)
+setwd("/Users/Jerica Tripp/Documents/ClassFiles/dsc520")
+housing_df <- read.csv("data/week-6-housing.csv")
+
+```
+## Kernel Denstiy Plot
+
+```{r inline code, echo=FALSE}
+library(ggplot2)
+setwd("/Users/Jerica Tripp/Documents/ClassFiles/dsc520")
+heights_df <- read.csv("data/r4ds/heights.csv")
+ggplot(data=heights_df, aes(earn)) +  geom_density()
+```
+
+## R4DS Height vs Earnings
+```{r, echo=FALSE}
+library(ggplot2)
+setwd("/Users/Jerica Tripp/Documents/ClassFiles/dsc520")
+heights_df <- read.csv("data/r4ds/heights.csv")
+ggplot(data=heights_df, aes(x=height, y=earn, col=sex))+geom_point()+ggtitle("Height vs. Earnings")+xlab("Height (Inches)")+ylab("Earnings (Dollars")
+```
+# Tables
+## Knitr Table with Kable
+```{r, echo=FALSE}
+setwd("/Users/Jerica Tripp/Documents/ClassFiles/dsc520")
+name <- c("Aragon", "Bilbo", "Frodo", "Galadriel", "Sam", "Gandalf", "Legolas", "Sauron", "Gollum")
+race <- c("Men", "Hobbit", "Hobbit", "Elf", "Hobbit", "Maia", "Elf", "Maia", "Hobbit")
+in_fellowship <- c(TRUE, FALSE, TRUE, FALSE, TRUE, TRUE, TRUE, FALSE, FALSE)
+ring_bearer <- c(FALSE, TRUE, TRUE, FALSE, TRUE, TRUE, FALSE, TRUE, TRUE)
+age <- c(88, 129, 51, 7000, 36, 2019, 2931, 7052, 589)
+
+characters_df <- data.frame(Name = name, Race = race, 'In Fellowship?' = in_fellowship, 'Is Ring Bearer' = ring_bearer, Age = age)
+knitr::kable(characters_df, caption='One Ring to Rule Them All')
+```
+## Pandoc Table
+#I had issues and could not get this to work
+
+# References
